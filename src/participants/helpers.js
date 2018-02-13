@@ -1,7 +1,7 @@
 const INIT_NUM_PARTICIPANTS = 20;
 const MAX_PHONE_LEN = 10;
 
-const FIRST_NAMES = ['Xor', 'Dom', 'Cli', 'Api', 'Haskell', 'Lisp', 'Nan', 'Ada', 'Soya', 'Monad', 'Molly', 'Node', 'Stack'. 'Try'];
+const FIRST_NAMES = ['Xor', 'Dom', 'Cli', 'Api', 'Haskell', 'Lisp', 'Nan', 'Ada', 'Soya', 'Monad', 'Molly', 'Node', 'Stack', 'Try'];
 const LAST_NAMES = ['Curry', 'Tomasik', 'Carmack', 'Trie', 'Script', 'Nullov', 'Smart', 'Mindful', 'Utilitronium', 'Trace', 'Cancer', 'Dijkstra'];
 const TLDs = ['org', 'fi', 'com', 'nz', 'ua'];
 
@@ -35,7 +35,7 @@ const genPhoneNum = () =>
 
 export const genParticipants = (n = INIT_NUM_PARTICIPANTS) => {
   try {
-    const participants = new Array(n);
+    var participants = new Array(n);
   } catch (e) {
     return [];
   }

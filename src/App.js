@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import Header from './layout/Header';
+import {fetchParticipants} from './participants/api';
 import ParticipantList from './participants/ParticipantList';
+import { FETCH_PARTICIPANTS_REQUEST, FETCH_PARTICIPANTS_SUCCESS } from './store/actions';
+import './common/index.css';
 
 const mapStateToProps = state => {
   return {
-    areParticipantsLoading: state.areParticipantsLoading,
-    participants: state.participants
+    areParticipantsLoading: state.participants.isListLoading,
+    participants: state.participants.list
 }};
 
 const mapDispatchToProps = dispatch => ({
@@ -18,9 +23,9 @@ const mapDispatchToProps = dispatch => ({
 
     return fetchParticipants()
       .then(resp => resp.json())
-      .then(json => dispatch({
+      .then(participants => dispatch({
         type: FETCH_PARTICIPANTS_SUCCESS,
-        payload: JSON.parse(json)
+        participants: participants
       }));
   }
 });
@@ -36,7 +41,7 @@ class App extends Component {
         <Header />
 
         <main>
-          <ParticipantList areParticipantsLoading={this.props.areParticipantsLoading} participants={this.props.participants} />
+          <ParticipantList isListLoading={this.props.areParticipantsLoading} participants={this.props.participants} />
         </main>
 
       </div>

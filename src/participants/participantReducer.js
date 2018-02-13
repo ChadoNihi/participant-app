@@ -1,5 +1,8 @@
+import { FETCH_PARTICIPANTS_REQUEST, FETCH_PARTICIPANTS_SUCCESS } from '../store/actions';
+
 const defaultState = {
-  participants: [],
+  isListLoading: false,
+  list: [],
   // sort: {
   //   col: 'name',
   //   isDesc: false
@@ -8,6 +11,19 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
   switch (action.type) {
+    case FETCH_PARTICIPANTS_REQUEST:
+      return {
+        ...state,
+        isListLoading: true
+      };
+
+    case FETCH_PARTICIPANTS_SUCCESS:
+      return {
+        ...state,
+        isListLoading: false,
+        list: action.participants
+      };
+
     // case SORT_TOGGLE:
     //   return {
     //     ...state,
@@ -15,6 +31,7 @@ export default (state = defaultState, action) => {
     //       state
     //     }
     //   };
+
     default:
       return state;
   }
