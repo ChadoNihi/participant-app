@@ -1,12 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
-import { IconButton, PrimaryButton, SecondaryButton } from '../common/buttons';
+import {
+  IconButton,
+  PrimaryButton,
+  SecondaryButton
+} from '../common/buttons';
 
-const ParticipantRow = ({ email, isEditing, fullname, phone }) => {
+const ParticipantRow = ({
+  email,
+  isEditing,
+  fullname,
+  phone
+}) => {
   return (
     isEditing ?
-      <tr>
+    <tr>
         <td><input type='text' value={fullname} /></td>
         <td><input type='email' value={email} /></td>
         <td><input type='text' value={phone} /></td>
@@ -14,18 +24,17 @@ const ParticipantRow = ({ email, isEditing, fullname, phone }) => {
           <SecondaryButton>Cancel</SecondaryButton>
           <PrimaryButton>Save</PrimaryButton>
         </td>
-      </tr>
-      :
-      <tr>
+      </tr> :
+    <tr>
         <td>{fullname}</td>
         <td>{email}</td>
         <td>{phone}</td>
         <td>
-          <IconButton><i class="material-icons">mode_edit</i></IconButton>
-          <IconButton><i class="material-icons">delete</i></IconButton>
+          <IconButton><i className="material-icons">mode_edit</i></IconButton>
+          <IconButton><i className="material-icons">delete</i></IconButton>
         </td>
       </tr>
-    );
+  );
 };
 
 ParticipantRow.propTypes = {

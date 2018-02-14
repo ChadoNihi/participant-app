@@ -1,4 +1,7 @@
-import { FETCH_PARTICIPANTS_REQUEST, FETCH_PARTICIPANTS_SUCCESS } from '../store/actions';
+import {
+  FETCH_PARTICIPANTS_REQUEST,
+  FETCH_PARTICIPANTS_SUCCESS
+} from '../store/actions';
 
 const defaultState = {
   isListLoading: false,
@@ -10,6 +13,7 @@ const defaultState = {
 };
 
 export default (state = defaultState, action) => {
+  console.log(action.type);
   switch (action.type) {
     case FETCH_PARTICIPANTS_REQUEST:
       return {
@@ -24,13 +28,13 @@ export default (state = defaultState, action) => {
         list: action.participants
       };
 
-    // case SORT_TOGGLE:
-    //   return {
-    //     ...state,
-    //     sort: {
-    //       state
-    //     }
-    //   };
+      // case SORT_TOGGLE:
+      //   return {
+      //     ...state,
+      //     sort: {
+      //       state
+      //     }
+      //   };
 
     default:
       return state;

@@ -1,6 +1,11 @@
-import {genParticipants} from './helpers';
+import {
+  genParticipants
+} from './helpers';
+
+const DELAY_MS = 1000;
 
 export const fetchParticipants = () => {
-  // TODO: simulate delay
-  return new Response(JSON.stringify(genParticipants()));
+  // simulate network response
+  return new Promise((resolve) => setTimeout(resolve, DELAY_MS))
+    .then(() => new Response(JSON.stringify(genParticipants())));
 }
