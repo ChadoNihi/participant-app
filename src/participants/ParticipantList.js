@@ -8,13 +8,14 @@ import ParticipantTable from './ParticipantTable';
 
 const ParticipantList = ({
   isListLoading,
-  participants
+  participants,
+  ...otherProps
 }) => {
   return (
     <div>
       <h1>List of participants <FontAwesomeIcon icon={faSpinner} spin {...(isListLoading || {className: 'hidden'})} /></h1>
       {'<ParticipantForm />'}
-      <ParticipantTable participants={participants} />
+      <ParticipantTable {...otherProps} participants={participants} />
     </div>
   );
 };
@@ -26,7 +27,8 @@ ParticipantList.propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone: PropTypes.string
-  }))
+  })),
+  otherProps: PropTypes.object
 };
 
 export default ParticipantList;

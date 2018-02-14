@@ -9,9 +9,11 @@ import {
 } from '../common/buttons';
 
 const ParticipantRow = ({
+  deleteParticipant,
   email,
-  isEditing,
   fullname,
+  isEditing,
+  participantId,
   phone
 }) => {
   return (
@@ -31,16 +33,18 @@ const ParticipantRow = ({
         <td>{phone}</td>
         <td>
           <IconButton><i className="material-icons">mode_edit</i></IconButton>
-          <IconButton><i className="material-icons">delete</i></IconButton>
+          <IconButton onClick={() => deleteParticipant(participantId)}><i className="material-icons">delete</i></IconButton>
         </td>
       </tr>
   );
 };
 
 ParticipantRow.propTypes = {
+  deleteParticipant: PropTypes.func.isRequired,
   isEditing: PropTypes.bool,
-  name: PropTypes.string,
+  fullname: PropTypes.string.isRequired,
   email: PropTypes.string,
+  participantId: PropTypes.string.isRequired,
   phone: PropTypes.string
 };
 

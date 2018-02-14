@@ -12,6 +12,7 @@ import {
 } from './participants/api';
 import ParticipantList from './participants/ParticipantList';
 import {
+  DEL_PARTICIPANT_SUCCESS,
   FETCH_PARTICIPANTS_REQUEST,
   FETCH_PARTICIPANTS_SUCCESS
 } from './store/actions';
@@ -27,7 +28,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   // async dispatcher via redux-thunk (https://github.com/gaearon/redux-thunk#composition)
   getParticipants: () => {
-    console.log('test');
     dispatch({
       type: FETCH_PARTICIPANTS_REQUEST
     });
@@ -36,8 +36,15 @@ const mapDispatchToProps = dispatch => ({
       .then(resp => resp.json())
       .then(participants => dispatch({
         type: FETCH_PARTICIPANTS_SUCCESS,
-        participants: participants
+        participants
       }));
+  },
+
+  deleteParticipant: id => {
+    dispatch({
+      type: DEL_PARTICIPANT_SUCCESS,
+      id
+    });
   }
 });
 
@@ -52,7 +59,11 @@ class App extends Component {
         <Header />
 
         <main>
-          <ParticipantList isListLoading={this.props.areParticipantsLoading} participants={this.props.participants} />
+          <ParticipantList
+            deleteParticipant={this.props.deleteParticipant}
+            isListLoading={this.props.areParticipantsLoading}
+            participants={this.props.participants}
+          />
         </main>
 
       </div>
@@ -62,6 +73,7 @@ class App extends Component {
 
 App.propTypes = {
   areParticipantsLoading: PropTypes.bool.isRequired,
+  deleteParticipant: PropTypes.func.isRequired,
   participants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

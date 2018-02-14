@@ -2,45 +2,51 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const IconButton = ({
-  children
+  children,
+  onClick
 }) => {
   return (
-    <div role='button'>
+    <button onClick={onClick}>
       {children}
-    </div>
+    </button>
   );
 };
 
 IconButton.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  onClick: PropTypes.func
 };
 
 export const PrimaryButton = ({
-  children
+  children,
+  onClick
 }) => {
   return (
-    <button>
+    <button onClick={onClick}>
       {children}
     </button>
   );
 };
 
 PrimaryButton.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  onClick: PropTypes.func
 };
 
 export const SecondaryButton = ({
-  children
+  children,
+  disabled,
+  onClick
 }) => {
   return (
-    <button>
+    <button onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
 };
 
 SecondaryButton.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func
 };
-
-export default IconButton;

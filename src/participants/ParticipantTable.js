@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import ParticipantRow from './ParticipantRow';
 
 const ParticipantTable = ({
-  participants
+  participants,
+  ...otherProps
 }) => {
   return (
     <table>
@@ -13,10 +14,12 @@ const ParticipantTable = ({
         {participants.map(participantObj => {
           return (
             <ParticipantRow
+              {...otherProps}
               key={participantObj.id}
               email={participantObj.email}
-              isEditing={false}
               fullname={participantObj.name}
+              isEditing={false}
+              participantId={participantObj.id}
               phone={participantObj.phone}
             />
           );
@@ -32,7 +35,8 @@ ParticipantTable.propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone: PropTypes.string
-  }))
+  })),
+  otherProps: PropTypes.object
 };
 
 const THeader = () => {
