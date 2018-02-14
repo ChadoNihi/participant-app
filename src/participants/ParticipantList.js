@@ -24,12 +24,10 @@ ParticipantList.propTypes = {
   isListLoading: PropTypes.bool,
   participants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    isEditingOn: PropTypes.bool,
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone: PropTypes.string
-  })),
-  otherProps: PropTypes.object
+  }))
 };
 
 export default ParticipantList;

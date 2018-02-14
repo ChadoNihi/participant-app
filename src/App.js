@@ -13,7 +13,7 @@ import {
 import ParticipantList from './participants/ParticipantList';
 import {
   DEL_PARTICIPANT_SUCCESS,
-  ENABLE_EDITING,
+  // ENABLE_EDITING,
   FETCH_PARTICIPANTS_REQUEST,
   FETCH_PARTICIPANTS_SUCCESS
 } from './store/actions';
@@ -22,6 +22,7 @@ import './common/index.css';
 const mapStateToProps = state => {
   return {
     areParticipantsLoading: state.participants.isListLoading,
+    participantId2EditingState: state.participants.id2EditingState,
     participants: state.participants.list
   }
 };
@@ -46,13 +47,6 @@ const mapDispatchToProps = dispatch => ({
       type: DEL_PARTICIPANT_SUCCESS,
       id
     });
-  },
-
-  enableParticipantEditing: id => {
-    dispatch({
-      type: ENABLE_EDITING,
-      id
-    });
   }
 });
 
@@ -69,7 +63,6 @@ class App extends Component {
         <main>
           <ParticipantList
             deleteParticipant={this.props.deleteParticipant}
-            enableParticipantEditing={this.props.enableParticipantEditing}
             isListLoading={this.props.areParticipantsLoading}
             participants={this.props.participants}
           />
@@ -83,7 +76,6 @@ class App extends Component {
 App.propTypes = {
   areParticipantsLoading: PropTypes.bool.isRequired,
   deleteParticipant: PropTypes.func.isRequired,
-  enableParticipantEditing: PropTypes.func.isRequired,
   participants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

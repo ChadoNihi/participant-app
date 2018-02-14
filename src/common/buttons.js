@@ -13,7 +13,7 @@ export const IconButton = ({
 };
 
 IconButton.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node,
   onClick: PropTypes.func
 };
 
@@ -29,7 +29,7 @@ export const PrimaryButton = ({
 };
 
 PrimaryButton.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node,
   onClick: PropTypes.func
 };
 
@@ -46,7 +46,7 @@ export const SecondaryButton = ({
 };
 
 SecondaryButton.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node,
   disabled: PropTypes.bool,
   onClick: PropTypes.func
 };

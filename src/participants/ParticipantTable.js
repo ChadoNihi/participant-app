@@ -18,7 +18,6 @@ const ParticipantTable = ({
               key={participantObj.id}
               email={participantObj.email}
               fullname={participantObj.name}
-              isEditingOn={participantObj.isEditingOn}
               participantId={participantObj.id}
               phone={participantObj.phone}
             />
@@ -32,12 +31,10 @@ const ParticipantTable = ({
 ParticipantTable.propTypes = {
   participants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    isEditingOn: PropTypes.bool,
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone: PropTypes.string
-  })),
-  otherProps: PropTypes.object
+  }))
 };
 
 const THeader = () => {

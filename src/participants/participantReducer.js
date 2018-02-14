@@ -1,11 +1,11 @@
 import {
   DEL_PARTICIPANT_SUCCESS,
-  ENABLE_EDITING,
   FETCH_PARTICIPANTS_REQUEST,
   FETCH_PARTICIPANTS_SUCCESS
 } from '../store/actions';
 
 const defaultState = {
+  // id2EditingState: {},
   isListLoading: false,
   list: [],
   // sort: {
@@ -28,18 +28,15 @@ export default (state = defaultState, action) => {
         ]
       };
 
-    case ENABLE_EDITING:
-      const newList = state.list.slice();
-
-      i = state.list.findIndex(participantObj => participantObj.id === action.id);
-      newList[i] = Object.assign({}, newList[i], {
-        isEditingOn: true
-      });
-
-      return {
-        ...state,
-        list: newList
-      };
+      // case ENABLE_EDITING:
+      //   i = state.list.findIndex(participantObj => participantObj.id === action.id);
+      //
+      //   return {
+      //     ...state,
+      //     id2EditingState: Object.assign({}, state.id2EditingState, {
+      //       [action.id]: state.list[i]
+      //     })
+      //   };
 
     case FETCH_PARTICIPANTS_REQUEST:
       return {
