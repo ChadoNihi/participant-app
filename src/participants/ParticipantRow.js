@@ -9,6 +9,9 @@ import {
   PrimaryButton,
   SecondaryButton
 } from '../common/buttons';
+import {
+  validatePaticipant
+} from './helpers';
 
 class ParticipantRow extends Component {
   constructor(props) {
@@ -20,16 +23,17 @@ class ParticipantRow extends Component {
     this.cancelEditing = this.cancelEditing.bind(this);
     this.enableEditing = this.enableEditing.bind(this);
     this.onRowFieldChange = this.onRowFieldChange.bind(this);
+    this.onSave = this.onSave.bind(this);
   }
 
   cancelEditing() {
-    this.setState(prevState => ({
+    this.setState(() => ({
       editingState: null
     }));
   }
 
   enableEditing() {
-    this.setState(prevState => ({
+    this.setState(() => ({
       editingState: {
         email: this.props.email,
         name: this.props.fullname,
@@ -46,6 +50,17 @@ class ParticipantRow extends Component {
         })
       };
     });
+  }
+
+  onSave() {
+    const participant = validatePaticipant(this.state.editingState);
+    if (participant) {
+      this.props.updateParticipant(participantId, participant);
+
+      this.setState(() => ({
+        editingState: null
+      }));
+    }
   }
 
   render() {
@@ -68,8 +83,12 @@ class ParticipantRow extends Component {
               onChange={(ev) => this.onRowFieldChange('phone', ev.target.value)} />
           </td>
           <td>
-            <SecondaryButton onClick={this.cancelEditing}>Cancel</SecondaryButton>
-            <PrimaryButton>Save</PrimaryButton>
+            <SecondaryButton onClick={this.cancelEditing}>
+              Cancel
+            </SecondaryButton>
+            <PrimaryButton onClick={this.onSave}>
+              Save
+            </PrimaryButton>
           </td>
         </tr> :
       <tr>
@@ -90,7 +109,8 @@ ParticipantRow.propTypes = {
   email: PropTypes.string,
   fullname: PropTypes.string.isRequired,
   participantId: PropTypes.string.isRequired,
-  phone: PropTypes.string
+  phone: PropTypes.string,
+  updateParticipant: PropTypes.func.isRequired
 };
 
 export default ParticipantRow;

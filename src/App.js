@@ -13,9 +13,9 @@ import {
 import ParticipantList from './participants/ParticipantList';
 import {
   DEL_PARTICIPANT_SUCCESS,
-  // ENABLE_EDITING,
   FETCH_PARTICIPANTS_REQUEST,
-  FETCH_PARTICIPANTS_SUCCESS
+  FETCH_PARTICIPANTS_SUCCESS,
+  UPDATE_PARTICIPANT_SUCCESS
 } from './store/actions';
 import './common/index.css';
 
@@ -47,6 +47,14 @@ const mapDispatchToProps = dispatch => ({
       type: DEL_PARTICIPANT_SUCCESS,
       id
     });
+  },
+
+  updateParticipant: (id, participant) => {
+    dispatch({
+      type: UPDATE_PARTICIPANT_SUCCESS,
+      id,
+      participant
+    });
   }
 });
 
@@ -65,6 +73,7 @@ class App extends Component {
             deleteParticipant={this.props.deleteParticipant}
             isListLoading={this.props.areParticipantsLoading}
             participants={this.props.participants}
+            updateParticipant={this.props.updateParticipant}
           />
         </main>
 
@@ -81,7 +90,8 @@ App.propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone: PropTypes.string
-  }))
+  })),
+  updateParticipant: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

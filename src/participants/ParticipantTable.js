@@ -41,7 +41,7 @@ const THeader = () => {
   return (
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Name*</th>
         <th>E-mail address</th>
         <th>Phone number</th>
         <th></th>
