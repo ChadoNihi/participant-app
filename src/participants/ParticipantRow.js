@@ -11,13 +11,14 @@ import {
 const ParticipantRow = ({
   deleteParticipant,
   email,
+  enableParticipantEditing,
   fullname,
-  isEditing,
+  isEditingOn,
   participantId,
   phone
 }) => {
   return (
-    isEditing ?
+    isEditingOn ?
     <tr>
         <td><input type='text' value={fullname} /></td>
         <td><input type='email' value={email} /></td>
@@ -32,7 +33,7 @@ const ParticipantRow = ({
         <td>{email}</td>
         <td>{phone}</td>
         <td>
-          <IconButton><i className="material-icons">mode_edit</i></IconButton>
+          <IconButton onClick={() => enableParticipantEditing(participantId)}><i className="material-icons">mode_edit</i></IconButton>
           <IconButton onClick={() => deleteParticipant(participantId)}><i className="material-icons">delete</i></IconButton>
         </td>
       </tr>
@@ -41,7 +42,8 @@ const ParticipantRow = ({
 
 ParticipantRow.propTypes = {
   deleteParticipant: PropTypes.func.isRequired,
-  isEditing: PropTypes.bool,
+  enableParticipantEditing: PropTypes.func.isRequired,
+  isEditingOn: PropTypes.bool,
   fullname: PropTypes.string.isRequired,
   email: PropTypes.string,
   participantId: PropTypes.string.isRequired,
