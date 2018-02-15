@@ -1,0 +1,16 @@
+.logo-container {
+  align-items: center;
+  display: flex;
+}
+
+.logo-img {
+  margin-right: 17px;
+}
+
+.logo-txt, .title {
+  font-size: 26px;
+  font-weight: 500;
+}
+.logo-txt {
+  color: var(--white);
+}

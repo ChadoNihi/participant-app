@@ -14,7 +14,7 @@ const ParticipantList = ({
 }) => {
   return (
     <div>
-      <h1>List of participants <FontAwesomeIcon icon={faSpinner} spin {...(isListLoading || {className: 'hidden'})} /></h1>
+      <h1 className='title'>List of participants <FontAwesomeIcon icon={faSpinner} spin {...(isListLoading || {className: 'hidden'})} /></h1>
       <ParticipantForm submitParticipant={addParticipant} />
       <ParticipantTable {...otherProps} participants={participants} />
     </div>

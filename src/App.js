@@ -18,7 +18,7 @@ import {
   FETCH_PARTICIPANTS_SUCCESS,
   UPDATE_PARTICIPANT_SUCCESS
 } from './store/actions';
-import './common/index.css';
+import './index.css';
 
 const mapStateToProps = state => {
   return {
