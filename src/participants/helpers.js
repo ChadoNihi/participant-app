@@ -2,9 +2,9 @@ const INIT_NUM_PARTICIPANTS = 20;
 const MAX_PHONE_LEN = 10;
 
 // Store RE objects for performance
-const RE_EMAIL = /^([^\s@]+@[^\s@]+\.[^\s@]+){,600}$/g; // https://stackoverflow.com/a/9204568/4579279
-const RE_PARTICIPANT_NAME = /^*{,200}$/g;
-const RE_PHONE_NUM = /^*{,40}$/g;
+const RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g; // https://stackoverflow.com/a/9204568/4579279
+const RE_PARTICIPANT_NAME = /^.{1,200}$/g;
+const RE_PHONE_NUM = /^.{3,40}$/g;
 const RE_REMOVE_FROM_PHONE_NUM = /\s+|[)(]/g;
 const RE_WSPACE = /\s+/g;
 
@@ -47,7 +47,11 @@ const validateEmail = (raw, emptyAllowed = false) => {
       alert('Please, provide the participant\'s email address.');
       return false;
     }
-  } else return RE_EMAIL.test(sanitized);
+  } else if (RE_EMAIL.test(sanitized)) return sanitized;
+  else {
+    alert('Invalid email.');
+    return false;
+  }
 }
 
 const validateParticipantName = (raw, emptyAllowed = false) => {
@@ -59,7 +63,11 @@ const validateParticipantName = (raw, emptyAllowed = false) => {
       alert('Please, provide the participant\'s name.');
       return false;
     }
-  } else return RE_PARTICIPANT_NAME.test(sanitized);
+  } else if (RE_PARTICIPANT_NAME.test(sanitized)) return sanitized;
+  else {
+    alert('Invalid name.');
+    return false;
+  }
 }
 
 const validatePhoneNum = (raw, emptyAllowed = false) => {
@@ -71,7 +79,11 @@ const validatePhoneNum = (raw, emptyAllowed = false) => {
       alert('Please, provide the participant\'s phone number.');
       return false;
     }
-  } else return RE_PHONE_NUM.test(sanitized);
+  } else if (RE_PHONE_NUM.test(sanitized)) return sanitized;
+  else {
+    alert('Invalid phone number.');
+    return false;
+  }
 }
 
 // ---------------------- EXPORTS ----------------------
@@ -95,12 +107,12 @@ export const genParticipants = (n = INIT_NUM_PARTICIPANTS) => {
   return participants;
 }
 
-export const validatePaticipant = rawParticipant => {
+export const validatePaticipant = raw => {
   const participant = Object.assign({}, {
-    email: validateEmail(rawParticipant.email, true),
-    name: validateParticipantName(rawParticipant.name),
-    phone: validatePhoneNum(rawParticipant.phone, true)
+    email: validateEmail(raw.email, true),
+    name: validateParticipantName(raw.name),
+    phone: validatePhoneNum(raw.phone, true)
   });
 
-  return Object.keys(participant).every(field => field !== false) && participant;
+  return Object.values(participant).every(val => val !== false) && participant;
 }

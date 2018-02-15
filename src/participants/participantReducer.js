@@ -1,7 +1,8 @@
 import {
   DEL_PARTICIPANT_SUCCESS,
   FETCH_PARTICIPANTS_REQUEST,
-  FETCH_PARTICIPANTS_SUCCESS
+  FETCH_PARTICIPANTS_SUCCESS,
+  UPDATE_PARTICIPANT_SUCCESS
 } from '../store/actions';
 
 const defaultState = {
@@ -28,16 +29,6 @@ export default (state = defaultState, action) => {
         ]
       };
 
-      // case ENABLE_EDITING:
-      //   i = state.list.findIndex(participantObj => participantObj.id === action.id);
-      //
-      //   return {
-      //     ...state,
-      //     id2EditingState: Object.assign({}, state.id2EditingState, {
-      //       [action.id]: state.list[i]
-      //     })
-      //   };
-
     case FETCH_PARTICIPANTS_REQUEST:
       return {
         ...state,
@@ -51,13 +42,17 @@ export default (state = defaultState, action) => {
         list: action.participants
       };
 
-      // case SORT_TOGGLE:
-      //   return {
-      //     ...state,
-      //     sort: {
-      //       state
-      //     }
-      //   };
+    case UPDATE_PARTICIPANT_SUCCESS:
+      const newList = state.list.slice();
+
+      i = state.list.findIndex(participantObj => participantObj.id === action.id);
+
+      newList[i] = Object.assign({}, newList[i], action.participant);
+
+      return {
+        ...state,
+        list: newList
+      };
 
     default:
       return state;

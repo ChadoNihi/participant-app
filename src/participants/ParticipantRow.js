@@ -55,7 +55,7 @@ class ParticipantRow extends Component {
   onSave() {
     const participant = validatePaticipant(this.state.editingState);
     if (participant) {
-      this.props.updateParticipant(participantId, participant);
+      this.props.updateParticipant(this.props.participantId, participant);
 
       this.setState(() => ({
         editingState: null
