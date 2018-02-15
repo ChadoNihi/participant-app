@@ -70,17 +70,20 @@ class ParticipantRow extends Component {
           <td>
             <input type='text'
               value={this.state.editingState.name || ''}
-              onChange={(ev) => this.onRowFieldChange('name', ev.target.value)} />
+              onChange={ev => this.onRowFieldChange('name', ev.target.value)}
+              onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
           <td>
             <input type='email'
               value={this.state.editingState.email || ''}
-              onChange={(ev) => this.onRowFieldChange('email', ev.target.value)} />
+              onChange={ev => this.onRowFieldChange('email', ev.target.value)}
+              onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
           <td>
             <input type='text'
               value={this.state.editingState.phone || ''}
-              onChange={(ev) => this.onRowFieldChange('phone', ev.target.value)} />
+              onChange={ev => this.onRowFieldChange('phone', ev.target.value)}
+              onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
           <td>
             <SecondaryButton onClick={this.cancelEditing}>
