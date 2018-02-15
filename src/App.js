@@ -12,6 +12,7 @@ import {
 } from './participants/api';
 import ParticipantList from './participants/ParticipantList';
 import {
+  ADD_PARTICIPANT_SUCCESS,
   DEL_PARTICIPANT_SUCCESS,
   FETCH_PARTICIPANTS_REQUEST,
   FETCH_PARTICIPANTS_SUCCESS,
@@ -28,6 +29,13 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  addParticipant: participantSansId => {
+    dispatch({
+      type: ADD_PARTICIPANT_SUCCESS,
+      participantSansId
+    });
+  },
+
   // async dispatcher via redux-thunk (https://github.com/gaearon/redux-thunk#composition)
   getParticipants: () => {
     dispatch({
@@ -70,6 +78,7 @@ class App extends Component {
 
         <main>
           <ParticipantList
+            addParticipant={this.props.addParticipant}
             deleteParticipant={this.props.deleteParticipant}
             isListLoading={this.props.areParticipantsLoading}
             participants={this.props.participants}
@@ -83,6 +92,7 @@ class App extends Component {
 }
 
 App.propTypes = {
+  addParticipant: PropTypes.func.isRequired,
   areParticipantsLoading: PropTypes.bool.isRequired,
   deleteParticipant: PropTypes.func.isRequired,
   participants: PropTypes.arrayOf(PropTypes.shape({

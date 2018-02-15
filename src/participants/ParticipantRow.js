@@ -22,7 +22,7 @@ class ParticipantRow extends Component {
 
     this.cancelEditing = this.cancelEditing.bind(this);
     this.enableEditing = this.enableEditing.bind(this);
-    this.onRowFieldChange = this.onRowFieldChange.bind(this);
+    this.onFieldChange = this.onFieldChange.bind(this);
     this.onSave = this.onSave.bind(this);
   }
 
@@ -42,11 +42,11 @@ class ParticipantRow extends Component {
     }));
   }
 
-  onRowFieldChange(col, val) {
+  onFieldChange(k, val) {
     this.setState(prevState => {
       return {
         editingState: Object.assign({}, prevState.editingState, {
-          [col]: val
+          [k]: val
         })
       };
     });
@@ -70,19 +70,22 @@ class ParticipantRow extends Component {
           <td>
             <input type='text'
               value={this.state.editingState.name || ''}
-              onChange={ev => this.onRowFieldChange('name', ev.target.value)}
+              placeholder={'Full name'}
+              onChange={ev => this.onFieldChange('name', ev.target.value)}
               onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
           <td>
             <input type='email'
               value={this.state.editingState.email || ''}
-              onChange={ev => this.onRowFieldChange('email', ev.target.value)}
+              placeholder={'E-mail address'}
+              onChange={ev => this.onFieldChange('email', ev.target.value)}
               onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
           <td>
             <input type='text'
               value={this.state.editingState.phone || ''}
-              onChange={ev => this.onRowFieldChange('phone', ev.target.value)}
+              placeholder={'Phone number'}
+              onChange={ev => this.onFieldChange('phone', ev.target.value)}
               onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
           <td>
@@ -99,8 +102,8 @@ class ParticipantRow extends Component {
           <td>{this.props.email}</td>
           <td>{this.props.phone}</td>
           <td>
-            <IconButton onClick={this.enableEditing}><i className="material-icons">mode_edit</i></IconButton>
-            <IconButton onClick={() => this.props.deleteParticipant(this.props.participantId)}><i className="material-icons">delete</i></IconButton>
+            <IconButton aria-label={'Edit'} onClick={this.enableEditing}><i className="material-icons">mode_edit</i></IconButton>
+            <IconButton aria-label={'Delete'} onClick={() => this.props.deleteParticipant(this.props.participantId)}><i className="material-icons">delete</i></IconButton>
           </td>
         </tr>
     );

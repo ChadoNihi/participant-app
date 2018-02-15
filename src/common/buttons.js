@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 export const IconButton = ({
   children,
-  onClick
+  onClick,
+  ...otherProps
 }) => {
   return (
-    <button onClick={onClick}>
+    <button {...otherProps} onClick={onClick}>
       {children}
     </button>
   );
@@ -19,10 +20,11 @@ IconButton.propTypes = {
 
 export const PrimaryButton = ({
   children,
-  onClick
+  onClick,
+  ...otherProps
 }) => {
   return (
-    <button onClick={onClick}>
+    <button {...otherProps} onClick={onClick}>
       {children}
     </button>
   );
@@ -36,10 +38,11 @@ PrimaryButton.propTypes = {
 export const SecondaryButton = ({
   children,
   disabled,
-  onClick
+  onClick,
+  ...otherProps
 }) => {
   return (
-    <button onClick={onClick} disabled={disabled}>
+    <button {...otherProps} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

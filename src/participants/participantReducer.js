@@ -1,4 +1,5 @@
 import {
+  ADD_PARTICIPANT_SUCCESS,
   DEL_PARTICIPANT_SUCCESS,
   FETCH_PARTICIPANTS_REQUEST,
   FETCH_PARTICIPANTS_SUCCESS,
@@ -18,6 +19,22 @@ const defaultState = {
 export default (state = defaultState, action) => {
   let i;
   switch (action.type) {
+    case ADD_PARTICIPANT_SUCCESS:
+      const id = (
+        // == (current max id) + 1
+        state.list.reduce((maxId, participant) => Math.max(maxId, participant.id), 0) + 1
+      ).toString();
+
+      return {
+        ...state,
+        list: [{
+            ...action.participantSansId,
+            id
+          },
+          ...state.list,
+        ]
+      };
+
     case DEL_PARTICIPANT_SUCCESS:
       i = state.list.findIndex(participantObj => participantObj.id === action.id);
       // works with i = -1 (not found) too
