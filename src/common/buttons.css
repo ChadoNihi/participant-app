@@ -1,0 +1,22 @@
+.rect-btn {
+  background-color: var(--bg-color);
+  color: var(--prim-color);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  height: 40px;
+  padding: 0 21px;
+
+  /*remove default style*/
+  border:none;
+  background-image:none;
+  box-shadow: none;
+}
+.rect-btn.primary {
+  background-color: var(--prim-color);
+  color: var(--white);
+}
+.rect-btn[disabled] {
+  background-color: var(--bg-color);
+  color: var(--title-color);
+}

@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './buttons.css';
+
 export const IconButton = ({
   children,
   onClick,
   ...otherProps
 }) => {
   return (
-    <button {...otherProps} onClick={onClick}>
+    <button {...otherProps} className='icon-btn' onClick={onClick}>
       {children}
     </button>
   );
@@ -24,7 +26,7 @@ export const PrimaryButton = ({
   ...otherProps
 }) => {
   return (
-    <button {...otherProps} onClick={onClick}>
+    <button {...otherProps} className='rect-btn primary' onClick={onClick}>
       {children}
     </button>
   );
@@ -42,7 +44,7 @@ export const SecondaryButton = ({
   ...otherProps
 }) => {
   return (
-    <button {...otherProps} onClick={onClick} disabled={disabled}>
+    <button {...otherProps} className='rect-btn' onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
