@@ -47,6 +47,11 @@ class ParticipantTable extends Component {
     return (
       <table>
         <THeader
+          columns={[
+            ['name', 'Name*'],
+            ['email', 'E-mail address'],
+            ['phone', 'Phone number']
+          ]}
           currentSortColumn={this.state.sortColumn}
           isDesc={this.state.sortColumn && this.state.isDesc[this.state.sortColumn]}
           onColumnHeaderClick={this.onColumnHeaderClick}
@@ -80,29 +85,23 @@ ParticipantTable.propTypes = {
 };
 
 const THeader = ({
+  columns,
   currentSortColumn,
   isDesc,
   onColumnHeaderClick,
 }) => {
-  // TODO: dry; what if isDesc is undefined
+  const columnHeaders = columns.map(([field, displayName]) => THeader.makeColumnHeader({
+    field,
+    displayName,
+    currentSortColumn,
+    isDesc,
+    onColumnHeaderClick
+  }));
+
   return (
     <thead>
       <tr>
-        <th>
-          <button onClick={() => onColumnHeaderClick('name')} aria-label={currentSortColumn ? (`Sort participants by name, ${isDesc ? 'ascended' : 'descended'}`) : 'Sort by name'}>
-            Name* {currentSortColumn === 'name' && <i className="material-icons" aria-hidden="true">{`arrow_${isDesc ? 'upward' : 'downward'}`}</i>}
-          </button>
-        </th>
-        <th>
-          <button onClick={() => onColumnHeaderClick('email')} aria-label={currentSortColumn ? (`Sort participants by email, ${isDesc ? 'ascended' : 'descended'}`) : 'Sort by email'}>
-            E-mail address {currentSortColumn === 'email' && <i className="material-icons" aria-hidden="true">{`arrow_${isDesc ? 'upward' : 'downward'}`}</i>}
-          </button>
-        </th>
-        <th>
-          <button onClick={() => onColumnHeaderClick('phone')} aria-label={currentSortColumn ? (`Sort participants by phone, ${isDesc ? 'ascended' : 'descended'}`) : 'Sort by phone'}>
-            Phone number {currentSortColumn === 'phone' && <i className="material-icons" aria-hidden="true">{`arrow_${isDesc ? 'upward' : 'downward'}`}</i>}
-          </button>
-        </th>
+        {columnHeaders}
         <th></th>
       </tr>
     </thead>
@@ -110,9 +109,26 @@ const THeader = ({
 };
 
 THeader.propTypes = {
+  columns: PropTypes.arrayOf(
+    PropTypes.arrayOf(PropTypes.string.isRequired)
+  ).isRequired,
   currentSortColumn: PropTypes.string,
   isDesc: PropTypes.bool,
   onColumnHeaderClick: PropTypes.func.isRequired
 };
+
+THeader.makeColumnHeader = ({
+  field,
+  displayName,
+  currentSortColumn,
+  isDesc,
+  onColumnHeaderClick
+}) => (
+  <th key={field}>
+    <button onClick={() => onColumnHeaderClick(field)} aria-label={currentSortColumn ? (`Sort participants by ${displayName.toLowerCase()}, ${isDesc ? 'ascended' : 'descended'}`) : 'Sort by ${displayName.toLowerCase()}'}>
+      {displayName} {currentSortColumn === field && <i className="material-icons" aria-hidden="true">{`arrow_${isDesc ? 'upward' : 'downward'}`}</i>}
+    </button>
+  </th>
+);
 
 export default ParticipantTable;
