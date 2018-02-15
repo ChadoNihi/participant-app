@@ -102,8 +102,12 @@ class ParticipantRow extends Component {
           <td>{this.props.email}</td>
           <td>{this.props.phone}</td>
           <td>
-            <IconButton aria-label={'Edit'} onClick={this.enableEditing}><i className="material-icons">mode_edit</i></IconButton>
-            <IconButton aria-label={'Delete'} onClick={() => this.props.deleteParticipant(this.props.participantId)}><i className="material-icons">delete</i></IconButton>
+            <IconButton aria-label={'Edit'} onClick={this.enableEditing}>
+              <i className="material-icons" aria-hidden="true">mode_edit</i>
+            </IconButton>
+            <IconButton aria-label={'Delete'} onClick={() => this.props.deleteParticipant(this.props.participantId)}>
+              <i className="material-icons" aria-hidden="true">delete</i>
+            </IconButton>
           </td>
         </tr>
     );

@@ -88,6 +88,17 @@ const validatePhoneNum = (raw, emptyAllowed = false) => {
 
 // ---------------------- EXPORTS ----------------------
 
+export const compareParticipants = (key, a, b, isDesc = false) => {
+  if (isDesc)[a, b] = [b, a]; // swap
+
+  const valA = a[key].toUpperCase();
+  const valB = b[key].toUpperCase();
+
+  if (valA < valB) return -1;
+  else if (valA > valB) return 1;
+  else return 0;
+}
+
 export const genParticipants = (n = INIT_NUM_PARTICIPANTS) => {
   try {
     var participants = new Array(n);

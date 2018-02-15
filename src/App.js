@@ -98,7 +98,7 @@ App.propTypes = {
   participants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
+    email: PropTypes.string,
     phone: PropTypes.string
   })),
   updateParticipant: PropTypes.func.isRequired
