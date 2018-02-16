@@ -23,7 +23,7 @@ const genUniq = (genCb) => {
   while (genUniq[cand]) {
     cand = genCb();
 
-    if (++attemptCnt > 100) throw ('Cannot find unique value.');
+    if (++attemptCnt > 100) throw new Error('Cannot find unique value.');
   }
 
   // memoize occurrence

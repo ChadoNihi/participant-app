@@ -1,0 +1,20 @@
+.participant-head-row, .participant-form, .participant-row {
+  background-color: var(--white);
+}
+
+.participant-row td {
+  padding: 24px;
+}
+
+.participant-form, .participant-table {
+  vertical-align: middle;
+  width: 100%;
+}
+.participant-form {
+  display: table;
+  padding: 16px;
+}
+
+.participant-head-row {
+  height: 48px;
+}

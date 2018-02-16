@@ -5,9 +5,9 @@ import './Logo.css';
 
 const Logo = (props) => {
   return (
-    <a href='#' className='logo-container reset-link'>
+    <a href='#' className='logo-container unstyle-link'>
       <img className='logo-img' src={ThumbLogo} alt='logo' />
-      <span class='logo-txt'>Nord Software</span>
+      <span className='logo-txt'>Nord Software</span>
     </a>
   );
 };

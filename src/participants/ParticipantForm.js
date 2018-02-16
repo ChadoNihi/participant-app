@@ -50,21 +50,21 @@ class ParticipantForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className='participant-form participant-row' onSubmit={this.onSubmit}>
         <input type='text'
           value={this.state.name || ''}
-          placeholder={'Full name'}
+          placeholder='Full name*'
           onChange={ev => this.onFieldChange('name', ev.target.value)}
           required
         />
         <input type='email'
           value={this.state.email || ''}
-          placeholder={'E-mail address'}
+          placeholder='E-mail address'
           onChange={ev => this.onFieldChange('email', ev.target.value)}
         />
         <input type='text'
           value={this.state.phone || ''}
-          placeholder={'Phone number'}
+          placeholder='Phone number'
           onChange={ev => this.onFieldChange('phone', ev.target.value)}
         />
         <PrimaryButton type='submit' disabled={false}>

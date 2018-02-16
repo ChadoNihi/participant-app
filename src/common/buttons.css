@@ -6,11 +6,6 @@
   font-weight: 500;
   height: 40px;
   padding: 0 21px;
-
-  /*remove default style*/
-  border:none;
-  background-image:none;
-  box-shadow: none;
 }
 .rect-btn.primary {
   background-color: var(--prim-color);
@@ -19,4 +14,21 @@
 .rect-btn[disabled] {
   background-color: var(--bg-color);
   color: var(--title-color);
+}
+
+.icon-btn, .rect-btn {
+  /*remove default style*/
+  border: none;
+  background-image: none;
+  box-shadow: none;
+  outline: inherit;
+}
+.icon-btn {
+  background-color: transparent;
+  color: var(--btn-icon-color);
+}
+
+.icon-btn > i {
+  height: var(--btn-icon-dim);
+  width: var(--btn-icon-dim);
 }

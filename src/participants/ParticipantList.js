@@ -5,6 +5,7 @@ import faSpinner from '@fortawesome/fontawesome-free-solid/faSpinner';
 
 import ParticipantForm from './ParticipantForm';
 import ParticipantTable from './ParticipantTable';
+import './index.css';
 
 const ParticipantList = ({
   addParticipant,

@@ -45,7 +45,7 @@ class ParticipantTable extends Component {
       participants);
 
     return (
-      <table>
+      <table className='participant-table'>
         <THeader
           columns={[
             ['name', 'Name*'],
@@ -100,7 +100,7 @@ const THeader = ({
 
   return (
     <thead>
-      <tr>
+      <tr className='participant-head-row'>
         {columnHeaders}
         <th></th>
       </tr>
@@ -125,7 +125,11 @@ THeader.makeColumnHeader = ({
   onColumnHeaderClick
 }) => (
   <th key={field}>
-    <button onClick={() => onColumnHeaderClick(field)} aria-label={currentSortColumn ? (`Sort participants by ${displayName.toLowerCase()}, ${isDesc ? 'ascended' : 'descended'}`) : 'Sort by ${displayName.toLowerCase()}'}>
+    <button
+      className={`txt-toggle${currentSortColumn === field ? ' active' : ''}`}
+      onClick={() => onColumnHeaderClick(field)}
+      aria-label={currentSortColumn ? (`Sort participants by ${displayName.toLowerCase()}, ${isDesc ? 'ascended' : 'descended'}`) : `Sort by ${displayName.toLowerCase()}`}
+    >
       {displayName} {currentSortColumn === field && <i className="material-icons" aria-hidden="true">{`arrow_${isDesc ? 'upward' : 'downward'}`}</i>}
     </button>
   </th>

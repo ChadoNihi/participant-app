@@ -2,7 +2,6 @@ import React, {
   Component
 } from 'react';
 import PropTypes from 'prop-types';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 import {
   IconButton,
@@ -66,25 +65,25 @@ class ParticipantRow extends Component {
   render() {
     return (
       this.state.editingState ?
-      <tr>
+      <tr className='participant-form participant-row'>
           <td>
             <input type='text'
               value={this.state.editingState.name || ''}
-              placeholder={'Full name'}
+              placeholder='Full name*'
               onChange={ev => this.onFieldChange('name', ev.target.value)}
               onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
           <td>
             <input type='email'
               value={this.state.editingState.email || ''}
-              placeholder={'E-mail address'}
+              placeholder='E-mail address'
               onChange={ev => this.onFieldChange('email', ev.target.value)}
               onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
           <td>
             <input type='text'
               value={this.state.editingState.phone || ''}
-              placeholder={'Phone number'}
+              placeholder='Phone number'
               onChange={ev => this.onFieldChange('phone', ev.target.value)}
               onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
@@ -97,7 +96,7 @@ class ParticipantRow extends Component {
             </PrimaryButton>
           </td>
         </tr> :
-      <tr>
+      <tr  className='participant-row'>
           <td>{this.props.fullname}</td>
           <td>{this.props.email}</td>
           <td>{this.props.phone}</td>
