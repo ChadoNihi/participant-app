@@ -1,20 +1,68 @@
 .participant-head-row, .participant-form, .participant-row {
   background-color: var(--white);
 }
-
-.participant-row td {
-  padding: 24px;
-}
-
 .participant-form, .participant-table {
   vertical-align: middle;
   width: 100%;
 }
-.participant-form {
-  display: table;
-  padding: 16px;
+.participant-table {
+  border-collapse: separate;
+  border-spacing: 0 1px;
+  margin-top: 8px;
 }
 
 .participant-head-row {
   height: 48px;
 }
+.participant-head-row > .participant-cell {
+  padding-left: 16px;
+  text-align: left;
+}
+
+.participant-form > .participant-cell {
+  display: table-cell;
+  padding: 16px 0 16px 16px;
+}
+.participant-form > .participant-cell:last-child {
+  padding-right: 16px;
+}
+
+.participant-row:not(.participant-form) > .participant-cell:not(:last-child)  {
+  color: var(--standard-txt-color);
+  font-size: var(--standard-font-sz);
+  font-weight: 400;
+  line-height: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-top: 24px;
+}
+
+/*.participant-cell {
+  overflow: auto;
+}*/
+.participant-cell:last-child {
+  padding-right: 19px;
+  text-align: right;
+  white-space: nowrap;
+}
+.participant-cell .rect-btn {
+  margin-left: 8px;
+}
+
+.participant-cell .icon-btn {
+  margin-left: 11px;
+}
+
+.btns-col-sz {
+  width: 24%;
+}
+.email-col-sz {
+  width: 34%;
+}
+.phone-col-sz {
+  width: 22%;
+}
+
+/*.participant-list {
+  overflow: hidden;
+}*/

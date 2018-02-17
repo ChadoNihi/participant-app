@@ -3,11 +3,13 @@
   --btn-icon-color: #909090;
   --header-bg-color: #afb8be;
   --prim-color: #0077ff;
+  --standard-txt-color: #505050;
   --title-color: #757575;
   --white: white;
 
   --btn-icon-dim: 24px;
   --main-width: 912px;
+  ----standard-font-sz: 16px;
 }
 
 body {
@@ -20,7 +22,7 @@ header {
   background-color: var(--header-bg-color);
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 4em;
+  margin-bottom: 3em;
   padding: 32px;
 }
 
@@ -30,15 +32,18 @@ main {
   width: var(--main-width);
 }
 
-button {
-  font-family: 'Roboto', sans-serif;
-}
-
 input {
   background-color: var(--white);
+  border: solid 1px var(--bg-color);
   box-sizing: border-box;
+  color: var(--standard-txt-color);
+  font-family: 'Roboto', sans-serif;
   height: 40px;
   padding: 0 0 0 15px;
+  width: 100%;
+}
+::placeholder {
+   color: var(--btn-icon-color);
 }
 
 .title {
@@ -60,6 +65,15 @@ input {
   background: none;
   box-shadow: none;
   outline: inherit;
+}
+.txt-toggle-icon {
+  bottom: -2px;
+  font-size: 17px;
+  padding-left: 7px;
+  position: relative;
+}
+.txt-toggle.active {
+  color: var(--standard-txt-color);
 }
 
 /* ------ utils ------ */

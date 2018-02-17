@@ -12,7 +12,7 @@ class ParticipantTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortColumn: null,
+      sortColumn: 'name',
       isDesc: {
         email: false,
         name: false,
@@ -102,7 +102,7 @@ const THeader = ({
     <thead>
       <tr className='participant-head-row'>
         {columnHeaders}
-        <th></th>
+        <th className='btns-col-sz'></th>
       </tr>
     </thead>
   );
@@ -124,13 +124,13 @@ THeader.makeColumnHeader = ({
   isDesc,
   onColumnHeaderClick
 }) => (
-  <th key={field}>
+  <th key={field} className={`participant-cell ${field}-col-sz`}>
     <button
       className={`txt-toggle${currentSortColumn === field ? ' active' : ''}`}
       onClick={() => onColumnHeaderClick(field)}
       aria-label={currentSortColumn ? (`Sort participants by ${displayName.toLowerCase()}, ${isDesc ? 'ascended' : 'descended'}`) : `Sort by ${displayName.toLowerCase()}`}
     >
-      {displayName} {currentSortColumn === field && <i className="material-icons" aria-hidden="true">{`arrow_${isDesc ? 'upward' : 'downward'}`}</i>}
+      {displayName} {currentSortColumn === field && <i className="material-icons txt-toggle-icon" aria-hidden="true">{`arrow_${isDesc ? 'upward' : 'downward'}`}</i>}
     </button>
   </th>
 );

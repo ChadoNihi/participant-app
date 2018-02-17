@@ -8,8 +8,8 @@ const RE_PHONE_NUM = /^.{3,40}$/g;
 const RE_REMOVE_FROM_PHONE_NUM = /\s+|[)(]/g;
 const RE_WSPACE = /\s+/g;
 
-const FIRST_NAMES = ['Xor', 'Dom', 'Cli', 'Api', 'Haskell', 'Lisp', 'Nan', 'Ada', 'Soya', 'Monad', 'Molly', 'Node', 'Stack', 'Try', 'C'];
-const LAST_NAMES = ['Curry', 'Tomasik', 'Carmack', 'Trie', 'Script', 'Nullov', 'Smart', 'Mindful', 'Utilitronium', 'Trace', 'Cancer', 'Dijkstra', 'Plusplus'];
+const FIRST_NAMES = ['Xor', 'Dom', 'Cli', 'Api', 'Haskell', 'Lisp', 'Nan', 'Ada', 'Soya', 'Monad', 'Molly', 'Node', 'Stack', 'Try', 'C', 'Elm'];
+const LAST_NAMES = ['Curry', 'Tomasik', 'Carmack', 'Trie', 'Script', 'Nullov', 'Smart', 'Mindful', 'Utilitronium', 'Trace', 'Cancer', 'Dijkstra', 'Plusplus', 'Sort', 'Render', 'Restfull', 'Pumpkin'];
 const TLDs = ['org', 'fi', 'com', 'nz', 'ua'];
 
 const getRandElem = (seq) =>

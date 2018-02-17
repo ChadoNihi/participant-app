@@ -66,28 +66,28 @@ class ParticipantRow extends Component {
     return (
       this.state.editingState ?
       <tr className='participant-form participant-row'>
-          <td>
+          <td className='participant-cell'>
             <input type='text'
               value={this.state.editingState.name || ''}
               placeholder='Full name*'
               onChange={ev => this.onFieldChange('name', ev.target.value)}
               onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
-          <td>
+          <td className='participant-cell'>
             <input type='email'
               value={this.state.editingState.email || ''}
               placeholder='E-mail address'
               onChange={ev => this.onFieldChange('email', ev.target.value)}
               onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
-          <td>
+          <td className='participant-cell'>
             <input type='text'
               value={this.state.editingState.phone || ''}
               placeholder='Phone number'
               onChange={ev => this.onFieldChange('phone', ev.target.value)}
               onKeyPress={ev => ev.key === 'Enter' && this.onSave()} />
           </td>
-          <td>
+          <td className='participant-cell'>
             <SecondaryButton onClick={this.cancelEditing}>
               Cancel
             </SecondaryButton>
@@ -97,10 +97,10 @@ class ParticipantRow extends Component {
           </td>
         </tr> :
       <tr  className='participant-row'>
-          <td>{this.props.fullname}</td>
-          <td>{this.props.email}</td>
-          <td>{this.props.phone}</td>
-          <td>
+          <td className='participant-cell'>{this.props.fullname}</td>
+          <td className='participant-cell'>{this.props.email}</td>
+          <td className='participant-cell'>{this.props.phone}</td>
+          <td className='participant-cell'>
             <IconButton aria-label={'Edit'} onClick={this.enableEditing}>
               <i className="material-icons" aria-hidden="true">mode_edit</i>
             </IconButton>
