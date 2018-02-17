@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  Fragment
+} from 'react';
 import PropTypes from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faSpinner from '@fortawesome/fontawesome-free-solid/faSpinner';
@@ -14,11 +16,11 @@ const ParticipantList = ({
   ...otherProps
 }) => {
   return (
-    <div className='participant-list'>
+    <Fragment>
       <h1 className='title'>List of participants <FontAwesomeIcon icon={faSpinner} spin {...(isListLoading || {className: 'hidden'})} /></h1>
       <ParticipantForm submitParticipant={addParticipant} />
       <ParticipantTable {...otherProps} participants={participants} />
-    </div>
+    </Fragment>
   );
 };
 

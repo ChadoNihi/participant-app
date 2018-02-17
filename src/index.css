@@ -72,7 +72,7 @@ input {
   padding-left: 7px;
   position: relative;
 }
-.txt-toggle.active {
+.txt-toggle.active, .txt-toggle:hover {
   color: var(--standard-txt-color);
 }
 
