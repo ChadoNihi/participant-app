@@ -13,7 +13,7 @@ The visual design follows "pixel-perfect" requirements.
 ## Run locally
 1) `git clone https://github.com/ChadoNihi/participant-app.git && cd participant-app`
 2) Install dependencies with `yarn install` (or `npm install`). (See the dependencies in `package.json`.)
-3) Run the app in development mode with `yarn start` (or `npm start`). To build the app for production: `yarn build` (or `npm run build`).
+3) Run the app in development mode with `yarn start` (or `npm start`). To build the app for production: `yarn build` (or `npm run build`). (See all available commands in [Create React App's docs.](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#available-scripts).)
 
 ## Tests
 Run tests with `yarn test` (or `npm test`).
