@@ -9,6 +9,7 @@
   border-collapse: separate;
   border-spacing: 0 1px;
   margin-top: 8px;
+  table-layout: fixed;
 }
 
 .participant-head-row {
@@ -37,9 +38,10 @@
   padding-top: 24px;
 }
 
-/*.participant-cell {
+.participant-cell {
   overflow: auto;
-}*/
+  overflow-wrap: break-word;
+}
 .participant-cell:last-child {
   padding-right: 19px;
   text-align: right;

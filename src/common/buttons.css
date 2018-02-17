@@ -18,7 +18,7 @@ button[disabled] {
 .rect-btn:hover:not([disabled]) {
   filter: brightness(96%);
 
-  transition: filter 0.2s;
+  transition: filter var(--quick-transition-sec);
 }
 .rect-btn.primary {
   background-color: var(--prim-color);
@@ -44,7 +44,7 @@ button[disabled] {
 .icon-btn:hover {
   filter: brightness(72%);
 
-  transition: filter 0.2s;
+  transition: filter var(--quick-transition-sec);
 }
 
 .icon-btn > i {

@@ -2,14 +2,14 @@ const INIT_NUM_PARTICIPANTS = 20;
 const MAX_PHONE_LEN = 10;
 
 // Store RE objects for performance
-const RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g; // https://stackoverflow.com/a/9204568/4579279
-const RE_PARTICIPANT_NAME = /^.{1,200}$/g;
-const RE_PHONE_NUM = /^.{3,40}$/g;
-const RE_REMOVE_FROM_PHONE_NUM = /\s+|[)(]/g;
-const RE_WSPACE = /\s+/g;
+const RE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // https://stackoverflow.com/a/9204568/4579279
+const RE_PARTICIPANT_NAME = /^.{1,200}$/;
+const RE_PHONE_NUM = /^.{3,40}$/;
+const RE_REMOVE_FROM_PHONE_NUM = /\s+|[)(]/;
+const RE_WSPACE = /\s+/;
 
-const FIRST_NAMES = ['Xor', 'Dom', 'Cli', 'Api', 'Haskell', 'Lisp', 'Nan', 'Ada', 'Soya', 'Monad', 'Molly', 'Node', 'Stack', 'Try', 'C', 'Elm'];
-const LAST_NAMES = ['Curry', 'Tomasik', 'Carmack', 'Trie', 'Script', 'Nullov', 'Smart', 'Mindful', 'Utilitronium', 'Trace', 'Cancer', 'Dijkstra', 'Plusplus', 'Sort', 'Render', 'Restfull', 'Pumpkin'];
+const FIRST_NAMES = ['Xor', 'Dom', 'Cli', 'Api', 'Haskell', 'Lisp', 'Nan', 'Ada', 'Soya', 'Monad', 'Molly', 'Node', 'Stack', 'Try', 'C', 'Elm', 'Wiki'];
+const LAST_NAMES = ['Curry', 'Tomasik', 'Carmack', 'Trie', 'Script', 'Nullov', 'Smart', 'Mindful', 'Utilitronium', 'Trace', 'Cancer', 'Dijkstra', 'Plusplus', 'Sort', 'Render', 'Restfull', 'Pumpkin', 'Strugatsky'];
 const TLDs = ['org', 'fi', 'com', 'nz', 'ua'];
 
 const getRandElem = (seq) =>

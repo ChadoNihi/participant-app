@@ -9,7 +9,9 @@
 
   --btn-icon-dim: 24px;
   --main-width: 912px;
-  ----standard-font-sz: 16px;
+  --standard-font-sz: 16px;
+
+  --quick-transition-sec: 0.2s;
 }
 
 body {
@@ -59,6 +61,7 @@ input {
   font-size: 14px;
   font-weight: 500;
   line-height: 16px;
+  padding-right: 3em;
 
   /*remove default style*/
   border: none;
