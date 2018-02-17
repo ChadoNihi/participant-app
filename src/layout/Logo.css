@@ -1,6 +1,7 @@
 .logo-container {
   align-items: center;
   display: flex;
+  padding: 10px;
 }
 
 .logo-img {
