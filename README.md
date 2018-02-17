@@ -1,5 +1,6 @@
 A React-Redux app for one interview assignment.
 The visual design follows "pixel-perfect" requirements.
+Deployed at [https://chadonihi.github.io/participant-app/](https://chadonihi.github.io/participant-app/).
 
 ### TODO
 - [ ] Write tests (and follow TDD henceforth)

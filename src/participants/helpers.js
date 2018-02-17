@@ -108,7 +108,7 @@ export const genParticipants = (n = INIT_NUM_PARTICIPANTS) => {
 
   for (let i = 0; i < n; ++i) {
     participants[i] = {
-      id: i.toString(),
+      id: genUniq(genUuidv4),
       name: `${getRandElem(FIRST_NAMES)} ${getRandElem(LAST_NAMES)}`,
       email: genUniq(genEmail),
       phone: genUniq(genPhoneNum)
@@ -126,4 +126,13 @@ export const validatePaticipant = raw => {
   });
 
   return Object.values(participant).every(val => val !== false) && participant;
+}
+
+export const genUuidv4 = () => {
+  // from https://stackoverflow.com/a/2117523/4579279
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = Math.random() * 16 | 0,
+      v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
 }

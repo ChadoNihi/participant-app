@@ -35,8 +35,6 @@ class ParticipantForm extends Component {
 
     ev.preventDefault();
 
-    console.log('onSubmit');
-
     if (participant) {
       this.props.submitParticipant(participant);
 

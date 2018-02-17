@@ -5,31 +5,24 @@ import {
   FETCH_PARTICIPANTS_SUCCESS,
   UPDATE_PARTICIPANT_SUCCESS
 } from '../store/actions';
+import {
+  genUuidv4
+} from './helpers';
 
 const defaultState = {
-  // id2EditingState: {},
   isListLoading: false,
-  list: [],
-  // sort: {
-  //   col: 'name',
-  //   isDesc: false
-  // }
+  list: []
 };
 
 export default (state = defaultState, action) => {
   let i;
   switch (action.type) {
     case ADD_PARTICIPANT_SUCCESS:
-      const id = (
-        // == (current max id) + 1
-        state.list.reduce((maxId, participant) => Math.max(maxId, participant.id), 0) + 1
-      ).toString();
-
       return {
         ...state,
         list: [{
             ...action.participantSansId,
-            id
+            id: genUuidv4()
           },
           ...state.list,
         ]

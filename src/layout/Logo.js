@@ -5,7 +5,7 @@ import './Logo.css';
 
 const Logo = (props) => {
   return (
-    <a href='#' className='logo-container unstyle-link'>
+    <a href='/' className='logo-container unstyle-link'>
       <img className='logo-img' src={ThumbLogo} alt='logo' />
       <span className='logo-txt'>Nord Software</span>
     </a>
