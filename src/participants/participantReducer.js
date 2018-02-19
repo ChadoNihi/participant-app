@@ -5,9 +5,6 @@ import {
   FETCH_PARTICIPANTS_SUCCESS,
   UPDATE_PARTICIPANT_SUCCESS
 } from '../store/actions';
-import {
-  genUuidv4
-} from './helpers';
 
 const defaultState = {
   isListLoading: false,
@@ -20,10 +17,8 @@ export default (state = defaultState, action) => {
     case ADD_PARTICIPANT_SUCCESS:
       return {
         ...state,
-        list: [{
-            ...action.participantSansId,
-            id: genUuidv4()
-          },
+        list: [
+          action.participant,
           ...state.list,
         ]
       };

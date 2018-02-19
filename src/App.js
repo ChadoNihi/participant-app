@@ -18,6 +18,9 @@ import {
   FETCH_PARTICIPANTS_SUCCESS,
   UPDATE_PARTICIPANT_SUCCESS
 } from './store/actions';
+import {
+  genUuidv4
+} from './participants/helpers';
 import './index.css';
 
 const mapStateToProps = state => {
@@ -32,7 +35,10 @@ const mapDispatchToProps = dispatch => ({
   addParticipant: participantSansId => {
     dispatch({
       type: ADD_PARTICIPANT_SUCCESS,
-      participantSansId
+      participant: {
+        ...participantSansId,
+        id: genUuidv4()
+      }
     });
   },
 
