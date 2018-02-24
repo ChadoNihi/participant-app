@@ -7,7 +7,8 @@ Deployed at [https://chadonihi.github.io/participant-app/](https://chadonihi.git
 - [ ] More sophisticated validation
 - [ ] Reflect sort option in the URL
 - [ ] Add pagination
-- [ ] Make the layout responsive despite the instructions.
+- [ ] Make the layout responsive despite the instructions
+- [ ] Debounce input events
 - [ ] Switch to CSS Grid? (This would simplify CSS but have worse browser support.)
 - [ ] Switch to [babel-plugin-react-css-modules](https://github.com/gajus/babel-plugin-react-css-modules)
 - [ ] Allow configuring the app (e.g. required fields) via a config file
