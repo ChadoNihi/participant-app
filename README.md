@@ -1,5 +1,5 @@
 A React-Redux app for one interview assignment.
-The visual design follows "pixel-perfect" requirements.
+The visual design follows "pixel-perfect" [requirements](https://github.com/digiaonline/docs/blob/master/recruitment/html5/styleguide.png).
 Deployed at [https://chadonihi.github.io/participant-app/](https://chadonihi.github.io/participant-app/).
 
 ### TODO
