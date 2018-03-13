@@ -60,7 +60,6 @@ export default (state = defaultState, action) => {
       };
 
     default:
-      console.error(`Unknown action type: "${action.type}"`);
       return state;
   }
 };
